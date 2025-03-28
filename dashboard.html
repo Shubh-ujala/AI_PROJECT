@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container dashboard-container">
+        <button id="logout">Logout</button>
+        <h1>Dashboard</h1>
+        <section id="subscriptions">
+            <h2>Your Subscriptions</h2>
+            <div id="subscription-list"></div>
+            <button id="add-subscription">Add Subscription</button>
+        </section>
+        <section id="ai-recommendations">
+            <h2>AI Recommendations</h2>
+            <div id="recommendation-list"></div>
+        </section>
+    </div>
+    <script src="user-details.js"></script>
+    <script src="ai-subscription-checker.js"></script>
+    <script>
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'index.html';
+        }
+        document.getElementById('logout').addEventListener('click', function() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
